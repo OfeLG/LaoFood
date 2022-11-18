@@ -35,6 +35,7 @@ class _Product_SliderState extends State<Product_Slider> {
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(

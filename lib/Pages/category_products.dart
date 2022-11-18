@@ -43,7 +43,10 @@ class Category_Products extends StatelessWidget {
                 SizedBox(
                   height: 7,
                 ),
-                Text(text),
+                Text(
+                  text,
+                  style: TextStyle(fontSize: 15.0, color: Colors.white),
+                ),
               ],
             ),
           ),

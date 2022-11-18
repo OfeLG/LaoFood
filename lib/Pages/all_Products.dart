@@ -52,8 +52,7 @@ class _AllSingleProducts extends State<AllSingleProducts> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-              builder: (context) => Details(product: widget.productsList)),
+          MaterialPageRoute(builder: (context) => Details(widget.productsList)),
         );
       },
       child: Column(
