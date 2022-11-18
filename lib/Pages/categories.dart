@@ -6,9 +6,7 @@ import 'package:loafood/constants.dart';
 import 'package:loafood/Pages/category_products.dart';
 
 class Categories extends StatefulWidget {
-  //Se declara una función que tendrá como fin ejecutar la consulta de una categoria en especifico
-  final void Function(String) change; //La funcion se definirá en HomeBody
-  Categories({Key? key, required this.change}) : super(key: key);
+  Categories({Key? key}) : super(key: key);
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -28,7 +26,6 @@ class _CategoriesState extends State<Categories> {
           Category_Products(
             press: () {
               //Se define la funcion press, que en este caso es una función de tipo VoidCallback (category)
-              widget.change("jewelery");
             },
             text: "breakfast",
             image: "assets/category_breakfast.jpg",
@@ -38,9 +35,7 @@ class _CategoriesState extends State<Categories> {
             height: 10,
           ),
           Category_Products(
-            press: () {
-              widget.change("men's clothing");
-            },
+            press: () {},
             text: "lunch",
             image: "assets/category_lunch.jpg",
           ),
@@ -56,9 +51,7 @@ class _CategoriesState extends State<Categories> {
             height: 10,
           ),
           Category_Products(
-            press: () {
-              widget.change("electronics");
-            },
+            press: () {},
             text: "snack",
             image: "assets/category_snack.jpg",
           )

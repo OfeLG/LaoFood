@@ -11,7 +11,7 @@ import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/Pages/OthersPage/product_details.dart';
 
 class AllProducts extends StatelessWidget {
-  final List<ModelProducts> productsList;
+  final List<ModelRandomFood> productsList;
   const AllProducts({super.key, required this.productsList});
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class AllProducts extends StatelessWidget {
 
 //Se crea una clase que contendrá los productos de forma individual
 class AllSingleProducts extends StatefulWidget {
-  final ModelProducts productsList;
+  final ModelRandomFood productsList;
   const AllSingleProducts({super.key, required this.productsList});
   @override
   State<AllSingleProducts> createState() => _AllSingleProducts();
@@ -62,18 +62,20 @@ class _AllSingleProducts extends State<AllSingleProducts> {
           Container(
             height: 100,
             width: 160,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                  width: 2, color: primaryColor, style: BorderStyle.solid),
-            ),
             child: Stack(
               //Se usa el stack para que dos widgets se sobrepongan (en este caso, el container del favorite encima de la imagen)
               children: [
                 Center(
-                  child: Image.network(
-                    widget.productsList.imgURL,
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.network(
+                        widget.productsList.imgURL,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                   ),
                 ),
                 Align(
@@ -102,12 +104,12 @@ class _AllSingleProducts extends State<AllSingleProducts> {
             width: 190,
             height: 80,
             child: ListTile(
-              title: Text((widget.productsList.title.length > 30)
-                  ? widget.productsList.title.substring(0, 30)
-                  : widget.productsList.title),
+              title: Text((widget.productsList.name.length > 20)
+                  ? widget.productsList.name.substring(0, 20)
+                  : widget.productsList.name + "..."),
               subtitle: Text(
-                "${widget.productsList.price}",
-                style: TextStyle(fontSize: 18.0, color: primaryColor),
+                "${widget.productsList.category}",
+                style: TextStyle(fontSize: 15.0, color: primaryColor),
               ), //para que puestre solo 20 caracteres de la descripción
               //Se usa el widget trailing para crear la opción de favorito que tendrá la app
             ),
@@ -122,7 +124,7 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                   height: 30,
                   width: 78,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: primaryColor,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                         width: 2,
@@ -135,9 +137,10 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                       Icon(
                         Icons.schedule,
                         size: 24,
-                        color: primaryColor,
+                        color: Colors.white,
                       ),
-                      Text("2 Hrs")
+                      Text(widget.productsList.time.toString() + " Mn",
+                          style: TextStyle(color: Colors.white)),
                     ],
                   ),
                 ),
@@ -145,7 +148,7 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                   width: 78,
                   height: 30,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: primaryColor,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                         width: 2,
@@ -158,9 +161,15 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                       Icon(
                         Icons.local_fire_department,
                         size: 24,
-                        color: primaryColor,
+                        color: Colors.white,
                       ),
-                      Text("30 C")
+                      Text(
+                          (widget.productsList.calories.toString().length > 4)
+                              ? widget.productsList.calories
+                                  .toString()
+                                  .substring(0, 4)
+                              : widget.productsList.calories.toString(),
+                          style: TextStyle(color: Colors.white)),
                     ],
                   ),
                 ),

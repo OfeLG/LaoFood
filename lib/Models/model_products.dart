@@ -1,36 +1,42 @@
-class Products {
-  List<ModelProducts> items = [];
+class Food {
+  List<ModelRandomFood> items = [];
 
-  Products();
+  Food();
 
-  Products.fromJsonList(jsonList) {
-    if (jsonList == null) return;
-    for (var item in jsonList) {
-      final product = new ModelProducts.fromJsonMap(item);
+  Food.fromJsonList(jsonList) {
+    if (jsonList == null) {
+      return;
+    }
+    ;
+    for (var item in jsonList["hits"]) {
+      final product = new ModelRandomFood.fromJsonMap(item);
       items.add(product);
     }
   }
 }
 
-class ModelProducts {
+class ModelRandomFood {
+  late String name;
+  late String id;
+  late double time;
   late String category;
-  late String title;
-  late double price;
-  late String description;
   late String imgURL;
+  late double calories;
 
-  ModelProducts(
-      {required this.category,
-      required this.title,
-      required this.price,
-      required this.description,
-      required this.imgURL});
+  ModelRandomFood(
+      {required this.name,
+      required this.id,
+      required this.time,
+      required this.category,
+      required this.imgURL,
+      required this.calories});
 
-  ModelProducts.fromJsonMap(Map<String, dynamic> json) {
-    category = json["category"];
-    title = json["title"];
-    price = json["price"];
-    description = json["description"];
-    imgURL = json["image"];
+  ModelRandomFood.fromJsonMap(Map<String, dynamic> json) {
+    name = json["recipe"]["label"];
+    id = json["recipe"]["uri"];
+    time = json["recipe"]["totalTime"];
+    category = json["recipe"]["mealType"][0];
+    imgURL = json["recipe"]["images"]["LARGE"]["url"];
+    calories = json["recipe"]["calories"];
   }
 }

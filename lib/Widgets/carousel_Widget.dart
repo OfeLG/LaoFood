@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:html';
 // Se importa la libreria carousel_pro.dart con el fin de usar las propiedades de carousel
-import 'package:carousel_pro/carousel_pro.dart';
+//import 'package:carousel_pro/carousel_pro.dart';
 
 // Se importa el paquete material.dart
 import 'package:flutter/material.dart';
@@ -10,74 +10,114 @@ import 'package:flutter/material.dart';
 import 'package:loafood/constants.dart';
 import 'package:loafood/Models/model_products.dart';
 
-List<Widget> Widget_Carousel(List<ModelProducts> data) {
+List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
   //products se crea para agregar en él la lista de widgets (en este caso serán imagenes las que se agregarán)
   List<Widget> products = [];
   int cont = 0;
   for (var product in data) {
     //Se recorre la lista (data) qcon el fin de ir agregando uno a uno sus elementos a un widget Image
     products.add(Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(20),
+          Container(
+            width: double.infinity,
+            height: 200,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.network(
+                product.imgURL,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
             child: Container(
-              height: double.infinity,
+              width: 305,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                    width: 2, color: primaryColor, style: BorderStyle.solid),
+              ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "TIRULO DE LA RECETA",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    child: ListTile(
+                      title: Text(
+                        (product.name.length > 30)
+                            ? product.name.substring(0, 30)
+                            : product.name + "...",
+                        textAlign: TextAlign.center,
+                      ),
+                      subtitle: Text(
+                        "${product.category}",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 15.0, color: primaryColor),
+                      ), //para que puestre solo 20 caracteres de la descripción
+                      //Se usa el widget trailing para crear la opción de favorito que tendrá la app
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "Categoria",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
                   ),
                   Container(
-                    height: 30,
-                    width: 160,
-                    child: FlatButton(
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
-                      color: secondaryColor,
-                      child: Text(
-                        "Ver mi plan",
-                        style: TextStyle(
-                            fontSize: 17.0, fontWeight: FontWeight.bold),
-                      ),
+                    width: double.infinity,
+                    height: 35,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            bottom: 20,
+                          ),
+                          child: Container(
+                            width: 90,
+                            height: 35,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.schedule,
+                                  size: 24,
+                                  color: primaryColor,
+                                ),
+                                Text(product.time.toString() + " Mn")
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            bottom: 20,
+                          ),
+                          child: Container(
+                            width: 90,
+                            height: 35,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Icon(
+                                  Icons.local_fire_department,
+                                  size: 24,
+                                  color: primaryColor,
+                                ),
+                                Text((product.calories.toString().length > 4)
+                                    ? product.calories
+                                        .toString()
+                                        .substring(0, 4)
+                                    : product.calories.toString()),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-          Container(
-            child: ClipPath(
-              clipper: MyCustomClipper(),
-              child: Image.network(
-                product.imgURL,
-              ),
-            ),
-          ),
+          )
         ],
       ),
     ));
@@ -87,21 +127,6 @@ List<Widget> Widget_Carousel(List<ModelProducts> data) {
     cont++;
   }
   return (products);
-}
-
-class MyCustomClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path()
-      ..lineTo(0, 0)
-      ..lineTo(80, size.height)
-      ..lineTo(size.width, size.height)
-      ..lineTo(size.width, 0);
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
 /*

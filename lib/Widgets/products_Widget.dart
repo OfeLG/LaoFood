@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:html';
 
 // Se importa el paquete material.dart
-import 'package:carousel_pro/carousel_pro.dart';
+//import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 import 'package:loafood/constants.dart';
 import 'package:loafood/Models/model_products.dart';
 
-Widget Products_Widget(ModelProducts data) {
+Widget Products_Widget(ModelRandomFood data) {
   return Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
     //Se crea el contenedor que tendrá cada imagen
     Container(
@@ -34,11 +34,11 @@ Widget Products_Widget(ModelProducts data) {
             height: 70,
             width: 180,
             child: ListTile(
-              title: Text((data.title.length > 30)
-                  ? data.title.substring(0, 30)
-                  : data.title),
+              title: Text((data.name.length > 30)
+                  ? data.name.substring(0, 30)
+                  : data.name),
               subtitle: Text(
-                "${data.price}",
+                "${data.category}",
                 style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,

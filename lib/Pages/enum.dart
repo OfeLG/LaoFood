@@ -8,5 +8,5 @@ class BottomBarController extends GetxController {
   setIndex(val) => _selectedIndex.value = val;
 }
 
-List<ModelProducts> favoriteList =
+List<ModelRandomFood> favoriteList =
     []; //Se crea una lista vacia en la que se ingresaran los datos de los productos favoritos

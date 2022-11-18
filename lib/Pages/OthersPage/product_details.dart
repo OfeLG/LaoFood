@@ -10,8 +10,8 @@ import 'package:loafood/Models/model_products.dart';
 import '../bottomNavBar.dart';
 
 class Details extends StatefulWidget {
-  //Se recibirá un objeto de tipo ModelProducts para mostrar los datos del producto seleccionado
-  final ModelProducts product;
+  //Se recibirá un objeto de tipo ModelRandomFood para mostrar los datos del producto seleccionado
+  final ModelRandomFood product;
 
   const Details({super.key, required this.product});
   @override

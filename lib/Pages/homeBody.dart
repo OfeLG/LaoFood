@@ -19,7 +19,7 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   //Se declara una lista de tipo ModelProducts con future, ya que se esperará a que products_List sea llenada con datos
-  late Future<List<ModelProducts>> proucts_List;
+  late Future<List<ModelRandomFood>> proucts_List;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _HomeBodyState extends State<HomeBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Se utiliza el FutureBuilder ya que la interfaz está a la espera de que la proucts_List tega los datos de la consutal de la Api
-      body: FutureBuilder<List<ModelProducts>>(
+      body: FutureBuilder<List<ModelRandomFood>>(
           future: proucts_List,
           builder: (context, snapshot) {
             //snapshot.data representa los datos obtenidos
@@ -52,21 +52,14 @@ class _HomeBodyState extends State<HomeBody> {
                         height: 10,
                       ),
                       //Se crea la sección de categorias que tendrá la aplicación
-                      Categories(
-                        change: (String value_category) {
-                          setState(() {
-                            proucts_List =
-                                Auctions_Provider().getCategory(value_category);
-                          });
-                        },
-                      ),
+                      Categories(),
                       SizedBox(
                         height: 10,
                       ),
                       //Se crea el slider que contendrá algunas de las imagenes de las subastas
                       Product_Slider(productsList: snapshot.data!),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       //Se crea la sección de todos los productos
                       Container(
