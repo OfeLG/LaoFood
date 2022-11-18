@@ -6,6 +6,7 @@ import 'package:loafood/Pages/home.dart';
 import 'package:loafood/constants.dart';
 import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/Widgets/products_Widget.dart';
+import 'package:loafood/Widgets/img_details.dart';
 import 'package:loafood/Models/model_products.dart';
 
 import '../bottomNavBar.dart';
@@ -80,6 +81,7 @@ class Details extends StatelessWidget {
                 ),
               ],
             ),
+            ImgDetails(product: product),
           ],
         ),
       ),
