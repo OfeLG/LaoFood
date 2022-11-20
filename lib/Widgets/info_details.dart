@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
-import '../Models/model_products.dart';
+import '../Models/model_foots.dart';
 
 List mientras = [
   "hora",
@@ -15,11 +15,11 @@ List mientras = [
   "vamos",
 ];
 
-//Se crea un stateless con el fin de plasmar la información del producto seleccionado
+//Se crea un stateless con el fin de plasmar la información de la comida seleccionada
 class InfoDetails extends StatelessWidget {
   //Creamos una variable que tendrá la información
-  final ModelRandomFood product;
-  const InfoDetails({super.key, required this.product});
+  final ModelRandomFood foot;
+  const InfoDetails({super.key, required this.foot});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class InfoDetails extends StatelessWidget {
       color: backgraundApp,
       child: Column(children: [
         Text(
-          product.name,
+          foot.name,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -44,14 +44,14 @@ class InfoDetails extends StatelessWidget {
             _buildIconText(
               Icons.access_time_outlined,
               primaryColor,
-              product.time.toString(),
+              foot.time.toString(),
             ),
             _buildIconText(
               Icons.local_fire_department_outlined,
               primaryColor,
-              (product.calories.toString().length > 4)
-                  ? product.calories.toString().substring(0, 4)
-                  : product.calories.toString(),
+              (foot.calories.toString().length > 4)
+                  ? foot.calories.toString().substring(0, 4)
+                  : foot.calories.toString(),
             ),
           ],
         ),
@@ -75,7 +75,7 @@ class InfoDetails extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text(
-                    product.category,
+                    foot.category,
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -90,7 +90,7 @@ class InfoDetails extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: Text(
-                    product.category,
+                    foot.category,
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -115,14 +115,18 @@ class InfoDetails extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Container(
-          height: 100,
+          height: 110,
           child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(40),
+                      border: Border.all(
+                          width: 2,
+                          color: primaryColor,
+                          style: BorderStyle.solid),
                     ),
                     child: Column(children: [
                       ClipRRect(
@@ -130,8 +134,8 @@ class InfoDetails extends StatelessWidget {
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40)),
                         child: Image.network(
-                          product.imgURL,
-                          width: 52,
+                          foot.imgURL,
+                          width: 60,
                         ),
                       ),
                       SizedBox(
@@ -168,7 +172,7 @@ class InfoDetails extends StatelessWidget {
           ),
         ), // Colocar la descripción
         SizedBox(
-          height: 10,
+          height: 40,
         ),
       ]),
     );

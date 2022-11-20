@@ -7,17 +7,17 @@ import 'package:loafood/constants.dart';
 //import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
-import 'package:loafood/Models/model_products.dart';
+import 'package:loafood/Models/model_foots.dart';
 import 'package:loafood/Widgets/carousel_Widget.dart';
 
-class Product_Slider extends StatefulWidget {
-  final List<ModelRandomFood> productsList;
-  const Product_Slider({super.key, required this.productsList});
+class Foot_Slider extends StatefulWidget {
+  final List<ModelRandomFood> footsList;
+  const Foot_Slider({super.key, required this.footsList});
   @override
-  State<Product_Slider> createState() => _Product_SliderState();
+  State<Foot_Slider> createState() => _Foot_SliderState();
 }
 
-class _Product_SliderState extends State<Product_Slider> {
+class _Foot_SliderState extends State<Foot_Slider> {
   @override
   Widget build(BuildContext context) {
     //Se crea el contenedor que tendrá al Slider
@@ -25,6 +25,7 @@ class _Product_SliderState extends State<Product_Slider> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 255,
+        color: backgraundApp,
         child: Column(
           children: [
             Container(
@@ -45,9 +46,9 @@ class _Product_SliderState extends State<Product_Slider> {
               height: 242, //Se define una altura al contenedor
               child: CarouselSlider.builder(
                 slideBuilder: (index) {
-                  return Widget_Carousel(widget.productsList)[index];
+                  return Widget_Carousel(widget.footsList)[index];
                 },
-                itemCount: Widget_Carousel(widget.productsList).length,
+                itemCount: Widget_Carousel(widget.footsList).length,
                 enableAutoSlider: true,
               ),
             ),

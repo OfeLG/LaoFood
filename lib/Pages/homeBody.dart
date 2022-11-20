@@ -6,9 +6,9 @@ import 'package:loafood/constants.dart';
 import 'package:loafood/Pages/customAppBar.dart';
 import 'package:loafood/Pages/slider.dart';
 import 'package:loafood/Pages/categories.dart';
-import 'package:loafood/Pages/all_Products.dart';
-import 'package:loafood/Models/model_products.dart';
-import 'package:loafood/Provider/products_provider.dart';
+import 'package:loafood/Pages/all_foots.dart';
+import 'package:loafood/Models/model_foots.dart';
+import 'package:loafood/Provider/foots_provider.dart';
 
 class HomeBody extends StatefulWidget {
   const HomeBody({Key? key}) : super(key: key);
@@ -18,14 +18,14 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  //Se declara una lista de tipo ModelProducts con future, ya que se esperará a que products_List sea llenada con datos
+  //Se declara una lista de tipo ModelFoots con future, ya que se esperará a que Foots_List sea llenada con datos
   late Future<List<ModelRandomFood>> proucts_List;
 
   @override
   void initState() {
-    //proucts_List es una instancia de la clase Auctions_Provider
-    proucts_List = Auctions_Provider()
-        .getProducts(); //Se llama al metodo getProducts de esa clase para obtener los datos de la Api
+    //proucts_List es una instancia de la clase Foots_Provider
+    proucts_List = Foots_Provider()
+        .getFoots(); //Se llama al metodo getFoots de esa clase para obtener los datos de la Api
     super.initState();
   }
 
@@ -57,14 +57,15 @@ class _HomeBodyState extends State<HomeBody> {
                         height: 10,
                       ),
                       //Se crea el slider que contendrá algunas de las imagenes de las subastas
-                      Product_Slider(productsList: snapshot.data!),
+                      Foot_Slider(footsList: snapshot.data!),
                       SizedBox(
                         height: 20,
                       ),
-                      //Se crea la sección de todos los productos
+                      //Se crea la sección de todos las comidas
                       Container(
                           height: 300,
-                          child: AllProducts(productsList: snapshot.data!)),
+                          color: backgraundApp,
+                          child: AllFoots(footsList: snapshot.data!)),
                     ],
                   ),
                 ),

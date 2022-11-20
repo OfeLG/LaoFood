@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
           height: 45,
           decoration: BoxDecoration(
             //Se le asigna el color del contenedor del primer icono
-            color: Colors.white,
+            color: backgraundApp,
             borderRadius: BorderRadius.circular(100),
           ),
           child: Builder(

@@ -11,7 +11,7 @@ const primaryColor = Color(0xFF9CCC65); //0xFFAED581
 const secondaryColor = Color(0xFFFF7043); //0xFFFFAB91
 
 //Este será el color del fondo de la App (O sea, nuestro Background)
-const backgraundApp = Color(0xFFDCEDC8);
+const backgraundApp = Colors.white;
 
 //Este será en color del texto de la App
 const textColor = Colors.grey;

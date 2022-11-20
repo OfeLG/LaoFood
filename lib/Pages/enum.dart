@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 // Se importan un del proyecto que tienen relación con esta pagina
-import 'package:loafood/Models/model_products.dart';
+import 'package:loafood/Models/model_foots.dart';
 
 class BottomBarController extends GetxController {
   var _selectedIndex = 0.obs;

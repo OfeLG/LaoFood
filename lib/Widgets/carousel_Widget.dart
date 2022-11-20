@@ -8,15 +8,15 @@ import 'package:flutter/material.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
-import 'package:loafood/Models/model_products.dart';
+import 'package:loafood/Models/model_foots.dart';
 
 List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
-  //products se crea para agregar en él la lista de widgets (en este caso serán imagenes las que se agregarán)
-  List<Widget> products = [];
+  //foots se crea para agregar en él la lista de widgets (en este caso serán imagenes las que se agregarán)
+  List<Widget> foots = [];
   int cont = 0;
-  for (var product in data) {
+  for (var foot in data) {
     //Se recorre la lista (data) qcon el fin de ir agregando uno a uno sus elementos a un widget Image
-    products.add(Container(
+    foots.add(Container(
       child: Stack(
         children: [
           Container(
@@ -25,7 +25,7 @@ List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: Image.network(
-                product.imgURL,
+                foot.imgURL,
                 fit: BoxFit.fill,
               ),
             ),
@@ -48,13 +48,13 @@ List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
                     width: double.infinity,
                     child: ListTile(
                       title: Text(
-                        (product.name.length > 30)
-                            ? product.name.substring(0, 30)
-                            : product.name + "...",
+                        (foot.name.length > 30)
+                            ? foot.name.substring(0, 30)
+                            : foot.name + "...",
                         textAlign: TextAlign.center,
                       ),
                       subtitle: Text(
-                        "${product.category}",
+                        "${foot.category}",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 15.0, color: primaryColor),
                       ), //para que puestre solo 20 caracteres de la descripción
@@ -82,7 +82,7 @@ List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
                                   size: 24,
                                   color: primaryColor,
                                 ),
-                                Text(product.time.toString() + " Mn")
+                                Text(foot.time.toString() + " Mn")
                               ],
                             ),
                           ),
@@ -102,11 +102,9 @@ List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
                                   size: 24,
                                   color: primaryColor,
                                 ),
-                                Text((product.calories.toString().length > 4)
-                                    ? product.calories
-                                        .toString()
-                                        .substring(0, 4)
-                                    : product.calories.toString()),
+                                Text((foot.calories.toString().length > 4)
+                                    ? foot.calories.toString().substring(0, 4)
+                                    : foot.calories.toString()),
                               ],
                             ),
                           ),
@@ -126,11 +124,11 @@ List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
     }
     cont++;
   }
-  return (products);
+  return (foots);
 }
 
 /*
-products.add(
-      Image.network(product.imgURL),
+foots.add(
+      Image.network(foot.imgURL),
     );
 */

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       //Se elimina el widget de Banner que viene integrado con la app de flutter
       debugShowCheckedModeBanner:
           false, //Por defecto es true por eso se configuró en false
-      title: "Auctions",
+      title: "LoaFood",
       theme: ThemeData(appBarTheme: AppBarTheme(color: primaryColor)),
       initialRoute: "/",
       routes: {"/": (BuildContext context) => Home()},

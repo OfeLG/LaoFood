@@ -1,7 +1,7 @@
 // Se importa el paquete material.dart
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:get/get.dart';
-import 'package:loafood/Models/model_products.dart';
+import 'package:loafood/Models/model_foots.dart';
 import 'package:flutter/material.dart';
 import 'package:loafood/Pages/OthersPage/Page_search.dart';
 
@@ -32,6 +32,7 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       height: 50,
       child: Scaffold(
+        backgroundColor: backgraundApp,
         floatingActionButton: FloatingActionButton(
           child: Icon(
             Icons.restaurant,
