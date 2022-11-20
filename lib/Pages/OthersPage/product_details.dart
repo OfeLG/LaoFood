@@ -9,6 +9,7 @@ import 'package:loafood/Widgets/products_Widget.dart';
 import 'package:loafood/Widgets/img_details.dart';
 import 'package:loafood/Models/model_products.dart';
 
+import '../../Widgets/info_details.dart';
 import '../bottomNavBar.dart';
 
 class Details extends StatelessWidget {
@@ -82,7 +83,44 @@ class Details extends StatelessWidget {
               ],
             ),
             ImgDetails(product: product),
+            InfoDetails(product: product),
           ],
+        ),
+      ),
+      floatingActionButton: Container(
+        width: 100,
+        height: 56,
+        child: RawMaterialButton(
+          fillColor: primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+          elevation: 2,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(
+                Icons.group,
+                color: Colors.white,
+                size: 30,
+              ),
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  "1",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ), //Añadir cantidad de personas a comer
+              ),
+            ],
+          ),
+          onPressed: () {},
         ),
       ),
       bottomNavigationBar: BottomNavBar(), //TEMPORAL

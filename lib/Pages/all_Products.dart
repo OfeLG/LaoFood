@@ -130,17 +130,10 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                         color: primaryColor,
                         style: BorderStyle.solid),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.schedule,
-                        size: 24,
-                        color: Colors.white,
-                      ),
-                      Text(widget.productsList.time.toString() + " Mn",
-                          style: TextStyle(color: Colors.white)),
-                    ],
+                  child: _buildIconText(
+                    Icons.access_time_outlined,
+                    Colors.white,
+                    widget.productsList.time.toString(),
                   ),
                 ),
                 Container(
@@ -154,22 +147,14 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                         color: primaryColor,
                         style: BorderStyle.solid),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Icon(
-                        Icons.local_fire_department,
-                        size: 24,
-                        color: Colors.white,
-                      ),
-                      Text(
-                          (widget.productsList.calories.toString().length > 4)
-                              ? widget.productsList.calories
-                                  .toString()
-                                  .substring(0, 4)
-                              : widget.productsList.calories.toString(),
-                          style: TextStyle(color: Colors.white)),
-                    ],
+                  child: _buildIconText(
+                    Icons.local_fire_department_outlined,
+                    Colors.white,
+                    (widget.productsList.calories.toString().length > 4)
+                        ? widget.productsList.calories
+                            .toString()
+                            .substring(0, 4)
+                        : widget.productsList.calories.toString(),
                   ),
                 ),
               ],
@@ -177,6 +162,26 @@ class _AllSingleProducts extends State<AllSingleProducts> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildIconText(IconData icon, Color color, String text) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Icon(
+          icon,
+          color: color,
+          size: 20,
+        ),
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 16,
+            color: color,
+          ),
+        )
+      ],
     );
   }
 }

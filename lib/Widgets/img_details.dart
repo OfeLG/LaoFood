@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
-
 import '../Models/model_products.dart';
 
 class ImgDetails extends StatelessWidget {
@@ -38,8 +37,16 @@ class ImgDetails extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Container(
-              width: 80,
-              height: 80,
+              width: 228,
+              height: 350,
+              margin: EdgeInsets.all(15),
+              decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  offset: Offset(-1, 10),
+                  blurRadius: 10,
+                ),
+              ]),
               child: ClipOval(
                 child: Image.network(
                   product.imgURL,
