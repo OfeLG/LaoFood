@@ -1,16 +1,18 @@
 // Se importa el paquete material.dart
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:get/get.dart';
-import 'package:loafood/Models/model_foots.dart';
+import 'package:loafood/Models/model_foods.dart';
 import 'package:flutter/material.dart';
-import 'package:loafood/Pages/OthersPage/Page_search.dart';
+import 'package:loafood/Pages/SearchPages/Page_search.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
 import 'package:loafood/Pages/enum.dart';
-import 'package:loafood/Pages/home.dart';
-import 'package:loafood/Pages/OthersPage/favoritePage.dart';
-import 'package:loafood/Pages/OthersPage/myPlan.dart';
+import 'package:loafood/Pages/HomePages/home.dart';
+import 'package:loafood/Pages/FavoritesPages/favoritePage.dart';
+import 'package:loafood/Pages/PlanPages/myPlan.dart';
+
+import 'Basket_pages/myBasket.dart';
 
 var iconList = [
   Icons.home,
@@ -66,12 +68,12 @@ class BottomNavBar extends StatelessWidget {
             } else if (controller.getIndex() == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PageSearh()),
+                MaterialPageRoute(builder: (context) => PageSearch()),
               );
             } else if (controller.getIndex() == 2) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => PageSearh()),
+                MaterialPageRoute(builder: (context) => MyBasket()),
               );
             } else if (controller.getIndex() == 3) {
               Navigator.push(

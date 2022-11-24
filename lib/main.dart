@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:loafood/Pages/OthersPage/myApp.dart';
+import 'package:loafood/Pages/myApp.dart';
 
 void main() {
   runApp(MyApp());

@@ -5,13 +5,18 @@ import 'package:flutter/material.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
-import '../Models/model_foots.dart';
+import '../Models/model_foods.dart';
 
-class ImgDetails extends StatelessWidget {
-  final ModelRandomFood foot;
+class ImgDetails extends StatefulWidget {
+  final ModelFoodId foodId;
 
-  const ImgDetails({super.key, required this.foot});
+  const ImgDetails({super.key, required this.foodId});
 
+  @override
+  State<ImgDetails> createState() => _ImgDetailsState();
+}
+
+class _ImgDetailsState extends State<ImgDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,7 +54,7 @@ class ImgDetails extends StatelessWidget {
               ]),
               child: ClipOval(
                 child: Image.network(
-                  foot.imgURL,
+                  widget.foodId.imgURL,
                   fit: BoxFit.fill,
                 ),
               ),
