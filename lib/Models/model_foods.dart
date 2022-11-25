@@ -53,11 +53,17 @@ class ModelRandomFood {
 
   ModelRandomFood.fromJsonMap(Map<String, dynamic> json) {
     name = json["recipe"]["label"];
+    print("nombre: ${json["recipe"]["label"]}");
     id = json["recipe"]["uri"];
+    print("id: ${json["recipe"]["uri"]}");
     time = json["recipe"]["totalTime"];
+    print("time: ${json["recipe"]["tatalTime"]}");
     category = json["recipe"]["mealType"][0];
-    imgURL = json["recipe"]["images"]["LARGE"]["url"];
+    print("category: ${json["recipe"]["mealType"]}");
+    imgURL = json["recipe"]["images"]["REGULAR"]["url"];
+    print("img: ${json["recipe"]["images"]["REGULAR"]["url"]}");
     calories = json["recipe"]["calories"];
+    print("calorias: ${json["recipe"]["calorias"]}");
   }
 }
 

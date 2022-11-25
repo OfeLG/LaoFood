@@ -1,9 +1,13 @@
 // Se importa el paquete material.dart
 import 'package:flutter/material.dart';
 import 'package:loafood/Models/model_foods.dart';
+import 'package:loafood/Pages/SearchPages/Page_search.dart';
+import 'package:loafood/Pages/SearchPages/body_search_Food.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
+
+String food_name = "";
 
 class SearchBar_Food extends StatefulWidget {
   const SearchBar_Food({
@@ -15,6 +19,14 @@ class SearchBar_Food extends StatefulWidget {
 }
 
 class _SearchBar_FoodState extends State<SearchBar_Food> {
+  final myController = TextEditingController();
+
+  @override
+  void dispose() {
+    myController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,6 +48,24 @@ class _SearchBar_FoodState extends State<SearchBar_Food> {
                     ],
                   ),
                   child: TextField(
+                    controller: myController,
+                    //Se indica que al darle click TextField se llama automaticamente una función de flutter
+                    onSubmitted: (value) {
+                      food_name = myController.text;
+                      if (food_name.length == 0) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PageSearch()),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => (Body_SearchFood())),
+                        );
+                      }
+                    },
+
                     //Se indica que al darle click TextField se llama automaticamente una función de flutter
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(vertical: 14),

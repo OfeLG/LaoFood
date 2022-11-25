@@ -91,10 +91,7 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                       if (favoriteList.length == 0) {
                         favoriteList.add(widget.foodsList);
                       } else {
-                        print("ENTRÓ EN EL ELSE");
                         for (int i = 0; i < favoriteList.length; i++) {
-                          print("iS: ${favoriteList[i].name}");
-                          print("LISTA: ${widget.foodsList.name}");
                           if (favoriteList[i].id == widget.foodsList.id) {
                             break;
                           } else if (favoriteList[i].id !=
