@@ -10,6 +10,9 @@ import 'package:loafood/Widgets/img_details.dart';
 import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Provider/foods_provider.dart';
 
+import '../FavoritesPages/favoritePage.dart';
+import '../SearchPages/Page_search.dart';
+import '../SearchPages/body_search_Food.dart';
 import 'info_details.dart';
 import '../bottomNavBar.dart';
 
@@ -67,11 +70,33 @@ class _DetailsState extends State<Details> {
                                   ),
                                   //Se agrega la funcionalidad que tendrá dicho icono
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => Home()),
-                                    );
+                                    if (previous_view == "HomeBody") {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Home()),
+                                      );
+                                    } else if (previous_view == "Favorite") {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Favorite()),
+                                      );
+                                    } else if (previous_view ==
+                                        "Body_SearchFood") {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                Body_SearchFood()),
+                                      );
+                                    } else if (previous_view == "PageSearch") {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => PageSearch()),
+                                      );
+                                    }
                                   },
                                 ),
                               ),

@@ -26,6 +26,7 @@ class _Body_SearchFoodState extends State<Body_SearchFood> {
   @override
   void initState() {
     //foodsList es una instancia de la clase Foods_Provider
+    previous_view = "Body_SearchFood";
     foodsList = Foods_Provider().getFoodSearch(
         food_name); //Se llama al metodo getFoods de esa clase para obtener los datos de la Api
     super.initState();

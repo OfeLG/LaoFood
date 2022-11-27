@@ -7,7 +7,9 @@ import 'package:loafood/constants.dart';
 import 'package:loafood/Pages/HomePages/category_foods.dart';
 
 class Categories extends StatefulWidget {
-  Categories({Key? key}) : super(key: key);
+  //Se declara una función que tendrá como fin ejecutar la consulta de una categoria en especifico
+  final void Function(String) change; //La funcion se definirá en HomeBody
+  Categories({Key? key, required this.change}) : super(key: key);
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -27,9 +29,10 @@ class _CategoriesState extends State<Categories> {
           //Category_Foods tiene el diseño del contenedor de la categoria (Así que solo se llama y se le pasan los datos a contener)
           Category_Foods(
             press: () {
+              widget.change("Breakfast");
               //Se define la funcion press, que en este caso es una función de tipo VoidCallback (category)
             },
-            text: "breakfast",
+            text: "Breakfast",
             image: "assets/category_breakfast.jpg",
           ),
           //Para que hay un espacio entre el elemento de arriba y el de abajo
@@ -37,24 +40,30 @@ class _CategoriesState extends State<Categories> {
             height: 10,
           ),
           Category_Foods(
-            press: () {},
-            text: "lunch",
+            press: () {
+              widget.change("Lunch");
+            },
+            text: "Lunch",
             image: "assets/category_lunch.jpg",
           ),
           SizedBox(
             height: 10,
           ),
           Category_Foods(
-            press: () {},
-            text: "dinner",
+            press: () {
+              widget.change("Dinner");
+            },
+            text: "Dinner",
             image: "assets/category_dinner.jpg",
           ),
           SizedBox(
             height: 10,
           ),
           Category_Foods(
-            press: () {},
-            text: "snack",
+            press: () {
+              widget.change("Snack");
+            },
+            text: "Snack",
             image: "assets/category_snack.jpg",
           )
         ],

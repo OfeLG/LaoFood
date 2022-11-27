@@ -2,6 +2,7 @@ import 'dart:html';
 
 // Se importa el paquete material.dart
 import 'package:flutter/material.dart';
+import 'package:loafood/Pages/FavoritesPages/favoritePage.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/constants.dart';
@@ -91,14 +92,12 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                       if (favoriteList.length == 0) {
                         favoriteList.add(widget.foodsList);
                       } else {
-                        for (int i = 0; i < favoriteList.length; i++) {
-                          if (favoriteList[i].id == widget.foodsList.id) {
-                            break;
-                          } else if (favoriteList[i].id !=
-                                  widget.foodsList.id &&
-                              i == favoriteList.length - 1) {
-                            favoriteList.add(widget.foodsList);
-                          }
+                        if (favoriteList.contains(widget.foodsList)) {
+                          int index = favoriteList.indexOf(widget
+                              .foodsList); // Me retorna el indice donde se encuentra
+                          favoriteList.removeAt(index);
+                        } else {
+                          favoriteList.add(widget.foodsList);
                         }
                       }
                     },

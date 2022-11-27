@@ -26,6 +26,7 @@ class _PageSearchState extends State<PageSearch> {
 
   @override
   void initState() {
+    previous_view = "PageSearch";
     //foodsList es una instancia de la clase Foods_Provider
     foodsList = Foods_Provider()
         .getFoods(); //Se llama al metodo getFoods de esa clase para obtener los datos de la Api

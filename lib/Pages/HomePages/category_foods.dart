@@ -41,11 +41,14 @@ class Category_Foods extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 7,
+                  height: 5,
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontSize: 15.0, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),

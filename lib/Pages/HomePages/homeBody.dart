@@ -10,6 +10,8 @@ import 'package:loafood/Pages/HomePages/all_foods.dart';
 import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Provider/foods_provider.dart';
 
+import '../enum.dart';
+
 class HomeBody extends StatefulWidget {
   const HomeBody({Key? key}) : super(key: key);
 
@@ -23,6 +25,7 @@ class _HomeBodyState extends State<HomeBody> {
 
   @override
   void initState() {
+    previous_view = "HomeBody";
     //foodsList es una instancia de la clase Foods_Provider
     foodsList = Foods_Provider()
         .getFoods(); //Se llama al metodo getFoods de esa clase para obtener los datos de la Api
@@ -52,11 +55,19 @@ class _HomeBodyState extends State<HomeBody> {
                         height: 10,
                       ),
                       //Se crea la sección de categorias que tendrá la aplicación
-                      Categories(),
+                      Categories(
+                        change: (String valueCategory) {
+                          setState(() {
+                            foodsList = Foods_Provider()
+                                .get_food_category(valueCategory);
+                          });
+                          print("setState");
+                        },
+                      ),
                       SizedBox(
                         height: 10,
                       ),
-                      //Se crea el slider que contendrá algunas de las imagenes de las subastas
+                      //Se crea el slider que contendrá algunas de las imagenes de de la comida del día
                       Food_Slider(foodsList: snapshot.data!),
                       SizedBox(
                         height: 20,

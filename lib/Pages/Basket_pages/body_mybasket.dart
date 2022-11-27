@@ -28,7 +28,7 @@ class _Body_MyBasketState extends State<Body_MyBasket> {
                   height: 120,
                 ),
                 Icon(
-                  Icons.add,
+                  Icons.shopping_basket,
                   color: secondaryColor.withOpacity(0.2),
                   size: 70,
                 ),
