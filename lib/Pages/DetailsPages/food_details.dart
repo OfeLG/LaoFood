@@ -11,6 +11,7 @@ import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Provider/foods_provider.dart';
 
 import '../FavoritesPages/favoritePage.dart';
+import '../PlanPages/myPlan.dart';
 import '../SearchPages/Page_search.dart';
 import '../SearchPages/body_search_Food.dart';
 import 'info_details.dart';
@@ -95,6 +96,12 @@ class _DetailsState extends State<Details> {
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => PageSearch()),
+                                      );
+                                    } else if (previous_view == "MyPlan") {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MyPlan()),
                                       );
                                     }
                                   },

@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:loafood/Models/model_foods.dart';
 
 //Se crea una variable para saber qué modelo utilizar en model food
+bool alert_plan = false;
 
 //Se crea la clase provider para obtener los datos disponible en la Api
 class Foods_Provider {
@@ -74,6 +75,29 @@ class Foods_Provider {
       //En caso de no ser Ok mostrará una excepción con el error
       throw Exception("Ocurrió algo ${resp.statusCode}");
     }
+  }
+
+  Future<List<List<ModelRandomFood>>> get_plan() async {
+    //Solo devolverá la lista luego que se realice la consulta y las validaciones
+    //Se realiza la conListsulta y se guarda en resp
+
+    List<List<ModelRandomFood>> Plan = [];
+    alert_plan = true;
+
+    for (int i = 0; i < 3; i++) {
+      if (i == 0) {
+        final plan1 = await get_food_category("Breakfast");
+        Plan.add(plan1);
+      } else if (i == 1) {
+        final plan2 = await get_food_category("Lunch");
+        Plan.add(plan2);
+      } else {
+        final plan3 = await get_food_category("Snack");
+        Plan.add(plan3);
+      }
+    }
+    alert_plan = false;
+    return Plan;
   }
 
   Future<ModelFoodId> getFoodId(String ID) async {

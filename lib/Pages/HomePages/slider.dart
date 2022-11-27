@@ -3,12 +3,16 @@ import 'dart:html';
 
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_carousel_slider/carousel_slider_transforms.dart';
+import 'package:loafood/Pages/HomePages/all_foods.dart';
+import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/constants.dart';
 //import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
 import 'package:loafood/Models/model_foods.dart';
-import 'package:loafood/Widgets/carousel_Widget.dart';
+import 'package:loafood/Widgets/main_carousel_Widget.dart';
+
+import '../DetailsPages/food_details.dart';
 
 class Food_Slider extends StatefulWidget {
   final List<ModelRandomFood> foodsList;
@@ -22,7 +26,7 @@ class _Food_SliderState extends State<Food_Slider> {
   Widget build(BuildContext context) {
     //Se crea el contenedor que tendrá al Slider
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(4.0),
       child: Container(
         height: 255,
         color: backgraundApp,
@@ -30,13 +34,19 @@ class _Food_SliderState extends State<Food_Slider> {
           children: [
             Container(
               width: double.infinity,
+              padding:
+                  EdgeInsets.only(left: previous_view == "HomeBody" ? 0 : 5),
               child: Text(
-                "Plan semanal",
+                previous_view == "HomeBody"
+                    ? "LoaFood offers you a plan"
+                    : "Plan of the day",
                 style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
                 ),
-                textAlign: TextAlign.center,
+                textAlign: previous_view == "HomeBody"
+                    ? TextAlign.center
+                    : TextAlign.left,
               ),
             ),
             SizedBox(
@@ -46,10 +56,19 @@ class _Food_SliderState extends State<Food_Slider> {
               height: 242, //Se define una altura al contenedor
               child: CarouselSlider.builder(
                 slideBuilder: (index) {
-                  return Widget_Carousel(widget.foodsList)[index];
+                  return GestureDetector(
+                      onTap: () {
+                        ID = widget.foodsList[index].id;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Details()),
+                        );
+                      },
+                      child: Widget_Carousel(widget.foodsList)[index]);
                 },
                 itemCount: Widget_Carousel(widget.foodsList).length,
                 enableAutoSlider: true,
+                unlimitedMode: true,
               ),
             ),
           ],

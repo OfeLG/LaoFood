@@ -50,7 +50,7 @@ class _FavoriteState extends State<Favorite> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: 180,
+                      height: 170,
                     ),
                     Icon(
                       Icons.favorite_outlined,

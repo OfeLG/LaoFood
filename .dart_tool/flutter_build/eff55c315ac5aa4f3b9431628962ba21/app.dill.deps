@@ -821,6 +821,7 @@ file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/HomePages/cus
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/HomePages/home.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/HomePages/homeBody.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/HomePages/slider.dart
+file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/PlanPages/card_plan.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/PlanPages/myPlan.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/SearchPages/Page_search.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/SearchPages/body_search_Food.dart
@@ -831,9 +832,9 @@ file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/enum.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Pages/myApp.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Provider/foods_provider.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Provider/ingredients_provider.dart
-file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Widgets/carousel_Widget.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Widgets/img_details.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Widgets/ingredient_Widget.dart
+file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/Widgets/main_carousel_Widget.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/constants.dart
 file:///C:/Users/ofeli/OneDrive/Escritorio/MOVIL/LoaFood/lib/main.dart
 file:///C:/src/flutter/bin/cache/dart-sdk/lib/_internal/dart2js_platform.dill

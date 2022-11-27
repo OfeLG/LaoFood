@@ -43,18 +43,8 @@ class _CategoriesState extends State<Categories> {
             press: () {
               widget.change("Lunch");
             },
-            text: "Lunch",
+            text: "Lunch/Dinner",
             image: "assets/category_lunch.jpg",
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Category_Foods(
-            press: () {
-              widget.change("Dinner");
-            },
-            text: "Dinner",
-            image: "assets/category_dinner.jpg",
           ),
           SizedBox(
             height: 10,

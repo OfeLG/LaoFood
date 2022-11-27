@@ -10,12 +10,16 @@ class FoodRandom {
       print("NO HAY NADA EN LA LISTA - RETURN");
       return;
     }
+    int i = 0;
     for (var item in jsonList["hits"]) {
-      print("ESTÁ RECORRIENDO LA LISTA");
+      if (alert_plan == true && i == 7) {
+        break;
+      }
       final food = new ModelRandomFood.fromJsonMap(item);
       food.id = food.id
           .replaceAll("http://www.edamam.com/ontologies/edamam.owl#", "");
       itemsRandom.add(food);
+      i++;
     }
   }
 }

@@ -11,6 +11,7 @@ class BottomBarController extends GetxController {
 
 List<ModelRandomFood> favoriteList =
     []; //Se crea una lista vacia en la que se ingresaran los datos de los productos favoritos
+List<ModelIngredients> Plan_day = [];
 List<ModelIngredients> ingr_Basket = [];
 List<String> list_search = [];
 

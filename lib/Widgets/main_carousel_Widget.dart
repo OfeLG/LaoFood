@@ -119,10 +119,6 @@ List<Widget> Widget_Carousel(List<ModelRandomFood> data) {
         ],
       ),
     ));
-    if (cont == 10) {
-      break;
-    }
-    cont++;
   }
   return (foods);
 }

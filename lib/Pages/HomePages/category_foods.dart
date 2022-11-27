@@ -25,7 +25,6 @@ class Category_Foods extends StatelessWidget {
       child: GestureDetector(
         onTap: press,
         child: Container(
-          //Se utilizará el widget chip, ya que es un elemento compacto que contiene un icono y texto
           child: Card(
             color: primaryColor,
             child: Column(
