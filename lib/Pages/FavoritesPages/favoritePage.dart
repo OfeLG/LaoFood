@@ -45,39 +45,7 @@ class _FavoriteState extends State<Favorite> {
               textAlign: TextAlign.center,
             ),
           ),
-          ingr_Basket.isEmpty
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: 170,
-                    ),
-                    Icon(
-                      Icons.favorite_outlined,
-                      color: secondaryColor.withOpacity(0.2),
-                      size: 70,
-                    ),
-                    ListTile(
-                      title: Text(
-                        "NO FAVORITE RECIPES",
-                        style: TextStyle(
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                            color: primaryColor.withOpacity(0.2)),
-                        textAlign: TextAlign.center,
-                      ),
-                      subtitle: Text(
-                        "To add recipes click on the icon i love it",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: primaryColor.withOpacity(0.2)),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                )
-              : SizedBox(height: 10),
+          SizedBox(height: 15),
           Container(
             width: double.infinity,
             height: 600,

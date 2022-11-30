@@ -10,27 +10,41 @@ import 'package:loafood/Pages/HomePages/slider.dart';
 import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/Pages/DetailsPages/food_details.dart';
+import 'package:loafood/Provider/foods_provider_Str.dart';
 
 String ID = "";
 
 class AllFoods extends StatelessWidget {
-  final List<ModelRandomFood> foodsList;
-  const AllFoods({super.key, required this.foodsList});
+  final BuildContext context;
+  final Foods_Provider_Str foodsList;
+  const AllFoods({super.key, required this.context, required this.foodsList});
   @override
   Widget build(BuildContext context) {
     //Se crea la cuadricula de cuantas columnas se desea mostrar
-    return GridView.builder(
-      itemCount: foodsList.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 0.70,
-      ),
-      itemBuilder: (BuildContext context, index) {
-        //Sele asignan los datos
-        return AllSingleProducts(
-          foodsList: foodsList[index],
-        );
-      },
+    return StreamBuilder(
+      stream: foodsList.FoodsStream,
+      builder: ((context, snapshot) {
+        if (snapshot.hasData) {
+          return GridView.builder(
+            itemCount: (snapshot.data as List<ModelRandomFood>).length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 0.70,
+            ),
+            itemBuilder: (BuildContext context, index) {
+              //Sele asignan los datos
+              return AllSingleProducts(
+                foodsList: (snapshot.data as List<ModelRandomFood>)[index],
+              );
+            },
+          );
+        } else {
+          print(snapshot.error);
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      }),
     );
   }
 }
@@ -147,7 +161,7 @@ class _AllSingleProducts extends State<AllSingleProducts> {
                   child: _buildIconText(
                     Icons.access_time_outlined,
                     Colors.white,
-                    widget.foodsList.time.toString(),
+                    "${widget.foodsList.time.toString()} M",
                   ),
                 ),
                 Container(

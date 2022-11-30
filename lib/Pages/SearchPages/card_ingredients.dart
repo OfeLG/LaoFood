@@ -4,7 +4,6 @@ import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Models/model_ingredients.dart';
 import 'package:loafood/Pages/Basket_pages/searchBar_ingredients.dart';
 import 'package:loafood/Pages/SearchPages/Page_search.dart';
-import 'package:loafood/Pages/SearchPages/body_search_Food.dart';
 import 'package:loafood/Pages/SearchPages/searchBar_food.dart';
 import 'package:loafood/Pages/enum.dart';
 

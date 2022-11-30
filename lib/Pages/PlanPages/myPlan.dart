@@ -1,7 +1,7 @@
 // Se importa el paquete material.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
-import 'package:loafood/Pages/HomePages/slider.dart';
+import 'package:loafood/Pages/PlanPages/slider_plan.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
 import 'package:loafood/Pages/enum.dart';
@@ -62,7 +62,7 @@ class _MyPlanState extends State<MyPlan> {
                       SizedBox(
                         height: 10,
                       ),
-                      Food_Slider(foodsList: [
+                      Slider_plan(foodsList: [
                         snapshot.data![0][0],
                         snapshot.data![1][0],
                         snapshot.data![2][0]

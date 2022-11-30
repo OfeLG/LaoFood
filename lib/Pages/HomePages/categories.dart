@@ -6,10 +6,12 @@ import 'package:loafood/Pages/HomePages/category_foods.dart';
 import 'package:loafood/constants.dart';
 import 'package:loafood/Pages/HomePages/category_foods.dart';
 
+import 'home.dart';
+import 'homeBody.dart';
+
 class Categories extends StatefulWidget {
   //Se declara una función que tendrá como fin ejecutar la consulta de una categoria en especifico
-  final void Function(String) change; //La funcion se definirá en HomeBody
-  Categories({Key? key, required this.change}) : super(key: key);
+  Categories({Key? key}) : super(key: key);
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -29,7 +31,11 @@ class _CategoriesState extends State<Categories> {
           //Category_Foods tiene el diseño del contenedor de la categoria (Así que solo se llama y se le pasan los datos a contener)
           Category_Foods(
             press: () {
-              widget.change("Breakfast");
+              categ = "Breakfast";
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
               //Se define la funcion press, que en este caso es una función de tipo VoidCallback (category)
             },
             text: "Breakfast",
@@ -41,7 +47,12 @@ class _CategoriesState extends State<Categories> {
           ),
           Category_Foods(
             press: () {
-              widget.change("Lunch");
+              categ = "Dinner";
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+              //Se define la funcion press, que en este caso es una función de tipo VoidCallback (category)
             },
             text: "Lunch/Dinner",
             image: "assets/category_lunch.jpg",
@@ -51,7 +62,12 @@ class _CategoriesState extends State<Categories> {
           ),
           Category_Foods(
             press: () {
-              widget.change("Snack");
+              categ = "Snack";
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+              //Se define la funcion press, que en este caso es una función de tipo VoidCallback (category)
             },
             text: "Snack",
             image: "assets/category_snack.jpg",

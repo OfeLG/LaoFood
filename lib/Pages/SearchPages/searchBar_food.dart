@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Pages/SearchPages/Page_search.dart';
-import 'package:loafood/Pages/SearchPages/body_search_Food.dart';
 import 'package:loafood/Pages/enum.dart';
 
 // Se importan los archivos del proyecto que tienen relación con esta pagina
@@ -137,8 +136,7 @@ class _SearchBar_FoodState extends State<SearchBar_Food> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            Body_SearchFood()),
+                                        builder: (context) => PageSearch()),
                                   );
                                 },
                                 style: TextButton.styleFrom(
@@ -197,18 +195,10 @@ class _SearchBar_FoodState extends State<SearchBar_Food> {
                     //Se indica que al darle click TextField se llama automaticamente una función de flutter
                     onSubmitted: (value) {
                       food_name = myController.text;
-                      if (food_name.length == 0) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => PageSearch()),
-                        );
-                      } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => (Body_SearchFood())),
-                        );
-                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => PageSearch()),
+                      );
                     },
 
                     //Se indica que al darle click TextField se llama automaticamente una función de flutter
