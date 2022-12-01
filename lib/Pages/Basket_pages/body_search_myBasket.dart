@@ -14,6 +14,7 @@ import 'package:loafood/Provider/foods_provider.dart';
 
 import '../bottomNavBar.dart';
 
+// Esta clase tendrá el cuerpo de la sección Basket cuando se está buscando un ingrediente(Saldrán los ingredientes que se buscan)
 class Body_MySearch extends StatefulWidget {
   const Body_MySearch({super.key});
   @override

@@ -47,7 +47,7 @@ class AllFoods extends StatelessWidget {
   }
 }
 
-//Se crea una clase que contendrá los productos de forma individual
+//Se crea una clase que contendrá las comidas de forma individual
 class AllSingleProducts extends StatefulWidget {
   final ModelRandomFood foodsList;
   const AllSingleProducts({super.key, required this.foodsList});
@@ -56,7 +56,7 @@ class AllSingleProducts extends StatefulWidget {
 }
 
 class _AllSingleProducts extends State<AllSingleProducts> {
-  //Se crean dos variables para llevar el control del icono favorito que tienen los contendores de los productos
+  //Se crean dos variables para llevar el control del icono favorito que tienen los contendores de las comidas
   bool isLike = false;
   final Color inactiveColor = Colors.black38;
 

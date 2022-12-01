@@ -20,6 +20,7 @@ class SearchBar_Food extends StatefulWidget {
   State<SearchBar_Food> createState() => _SearchBar_FoodState();
 }
 
+// Aca se encuentra la barra del search y el filtro
 class _SearchBar_FoodState extends State<SearchBar_Food> {
   final myController = TextEditingController();
   bool prueba = true;
@@ -38,6 +39,7 @@ class _SearchBar_FoodState extends State<SearchBar_Food> {
     super.dispose();
   }
 
+// Este contendrá la función del filtro
   void displayBottomSheet(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -170,6 +172,7 @@ class _SearchBar_FoodState extends State<SearchBar_Food> {
         });
   }
 
+// Este si contiene la barra
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -227,7 +230,8 @@ class _SearchBar_FoodState extends State<SearchBar_Food> {
                   ],
                 ),
                 child: IconButton(
-                  onPressed: () => displayBottomSheet(context),
+                  onPressed: () => displayBottomSheet(
+                      context), // Aca se llama la función que se creo arriba
                   icon: Icon(Icons.tune),
                   color: Colors.white,
                 ),

@@ -11,7 +11,7 @@ import 'package:loafood/constants.dart';
 
 import '../DetailsPages/food_details.dart';
 
-//Se usará un estateles ya que solo se mostrarán las categorias
+//Esta contendrán las card que tienen las recetas del plan semanal (desde el dia 2 hasta el dia 7)
 class Card_plan extends StatelessWidget {
   final ModelRandomFood food;
 
@@ -78,8 +78,7 @@ class Card_plan extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
-                    ), //para que puestre solo 20 caracteres de la descripción
-                    //Se usa el widget trailing para crear la opción de favorito que tendrá la app
+                    ),
                   ),
                 ),
               ],

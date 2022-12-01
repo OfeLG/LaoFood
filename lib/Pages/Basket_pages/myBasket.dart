@@ -8,6 +8,7 @@ import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/Pages/bottomNavBar.dart';
 import 'package:loafood/constants.dart';
 
+// Esta clase tendrá la pagina como tal de Basket (acá se llamará a Body_Search_myBasket)
 class MyBasket extends StatefulWidget {
   @override
   State<MyBasket> createState() => _MyBasketState();

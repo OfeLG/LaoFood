@@ -14,6 +14,7 @@ import '../../Models/model_foods.dart';
 import '../../Provider/foods_provider_Str.dart';
 import '../DetailsPages/food_details.dart';
 
+// Esta clase contendrá la estructura de la sección search
 class PageSearch extends StatefulWidget {
   @override
   State<PageSearch> createState() => _PageSearchState();
@@ -75,6 +76,7 @@ class _PageSearchState extends State<PageSearch> {
   }
 }
 
+// acá se tendrá un GridView que pasará cada receta a AllSingleProducts (el cual nos retornará las card de cada receta - es como la de la pagina principal)
 class GridView_Search extends StatelessWidget {
   final BuildContext context;
   final Foods_Provider_Str foodsList;

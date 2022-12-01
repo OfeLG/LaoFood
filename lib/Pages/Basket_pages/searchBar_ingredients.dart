@@ -11,6 +11,7 @@ import 'package:loafood/Models/model_ingredients.dart';
 
 String name_ingredient = "";
 
+// Esta clase contendrá la barra del buscador que se encuentra en Basket
 class SearchBar_Ingr extends StatefulWidget {
   const SearchBar_Ingr({
     Key? key,

@@ -14,6 +14,7 @@ import 'package:loafood/Widgets/main_carousel_Widget.dart';
 
 import '../DetailsPages/food_details.dart';
 
+// Ese slider contendrá las recetas del plan (del día 1)
 class Slider_plan extends StatefulWidget {
   final List<ModelRandomFood> foodsList;
   const Slider_plan({super.key, required this.foodsList});

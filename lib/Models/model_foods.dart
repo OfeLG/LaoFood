@@ -1,10 +1,12 @@
 import 'package:loafood/Provider/foods_provider.dart';
 
+// Se crea la clase FoodRandom para recorrer los datos de la consulta
 class FoodRandom {
+  // Se crea la lista en la que se meterán los datos a tomar
   List<ModelRandomFood> itemsRandom = [];
 
   FoodRandom();
-
+  // Se crea la función que recorrerá la consulta (Json)
   FoodRandom.fromJsonList(jsonList) {
     if (jsonList == null) {
       print("NO HAY NADA EN LA LISTA - RETURN");
@@ -22,6 +24,7 @@ class FoodRandom {
   }
 }
 
+// La clase que obtendrá los tipos de datos a recolectar (Es como nuestro map)
 class ModelRandomFood {
   late String name;
   late double time;

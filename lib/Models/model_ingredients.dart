@@ -1,6 +1,8 @@
 import 'package:loafood/Provider/foods_provider.dart';
 
+// Se crea la clase Ingredients para recorrer los datos de la consulta
 class Ingredients {
+  // Se crea la lista en la que se meterán los datos a tomar
   List<ModelIngredients> itemsIngr = [];
 
   Ingredients();
@@ -15,6 +17,7 @@ class Ingredients {
   }
 }
 
+// La clase que obtendrá los tipos de datos a recolectar (Es como nuestro map)
 class ModelIngredients {
   late String name;
   late String imgURL;

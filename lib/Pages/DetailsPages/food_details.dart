@@ -17,6 +17,7 @@ import '../SearchPages/Page_search.dart';
 import 'info_details.dart';
 import '../bottomNavBar.dart';
 
+// Esta clase contiene la estructura de la pagina de details (Acá se llama a info_details y se llama img_details)
 class Details extends StatefulWidget {
   final ModelRandomFood food;
   const Details({super.key, required this.food});

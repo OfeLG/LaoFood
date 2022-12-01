@@ -61,7 +61,7 @@ class CustomAppBar extends StatelessWidget {
             ),
           ],
         ),
-        //Se crea el tercer elemento de appBar, el cual es la imagen del perfil del usuario
+        //Se crea el tercer elemento de appBar, el cual es la imagen del logo de la app
         Container(
           width: 70,
           height: 70,

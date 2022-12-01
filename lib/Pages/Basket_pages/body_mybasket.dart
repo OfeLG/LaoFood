@@ -8,6 +8,7 @@ import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/Widgets/ingredient_Widget.dart';
 import 'package:loafood/constants.dart';
 
+// Esta clase tendrá el cuerpo de la sección Basket (Saldrán los ingredientes agregados en la canasta)
 class Body_MyBasket extends StatefulWidget {
   @override
   State<Body_MyBasket> createState() => _Body_MyBasketState();
@@ -106,63 +107,3 @@ class _Body_MyBasketState extends State<Body_MyBasket> {
     );
   }
 }
-
-
-
-/*
-
-child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(20),
-                      width: double.infinity,
-                      height: 100,
-                      color: Colors.red,
-                      child: Text(
-                        snapshot.data!.name,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-
-
-
-
-
-
-
- if (ingr_basket.length == 0) {
-              return  Container(
-                child: ListTile(
-                  title: Text("EMPTY BASKET",
-                      style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: primaryColor.withOpacity(0.1)),
-                      textAlign: TextAlign.center,
-                  ),
-                  subtitle: Text(
-                    "To add an ingredient, use the search engine",
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: primaryColor.withOpacity(0.1),
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              );
-            } else if (ingr_basket.length > 0) {
-              return Container();
-            }
-
-
-*/

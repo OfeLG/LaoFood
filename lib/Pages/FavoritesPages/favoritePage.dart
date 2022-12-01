@@ -9,7 +9,7 @@ import 'package:loafood/constants.dart';
 import '../DetailsPages/food_details.dart';
 import '../HomePages/all_foods.dart';
 
-//Pagina donde se muestran las comidas favoritos
+//Pagina donde se muestran las comidas favoritas
 class Favorite extends StatefulWidget {
   const Favorite({super.key});
   @override
@@ -74,7 +74,6 @@ class _FavoriteState extends State<Favorite> {
                           height: 100,
                           width: 160,
                           child: Stack(
-                            //Se usa el stack para que dos widgets se sobrepongan (en este caso, el container del favorite encima de la imagen)
                             children: [
                               Center(
                                 child: Container(
