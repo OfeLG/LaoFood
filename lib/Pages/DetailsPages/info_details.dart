@@ -206,12 +206,17 @@ class _InfoDetailsState extends State<InfoDetails> {
                             size: 20,
                           ),
                         ),
-                        Text(
-                          (snapshot.data as List<ModelFoodId>)[0].recipe[index],
-                          style: TextStyle(
-                            fontSize: 19,
-                            wordSpacing: 1.2,
-                            height: 1.5,
+                        Container(
+                          width: double.infinity,
+                          child: Text(
+                            (snapshot.data as List<ModelFoodId>)[0]
+                                .recipe[index],
+                            softWrap: true,
+                            style: TextStyle(
+                              fontSize: 19,
+                              wordSpacing: 1.2,
+                              height: 1.5,
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -229,7 +234,6 @@ class _InfoDetailsState extends State<InfoDetails> {
           );
         } else {
           print(snapshot.error);
-          print("NO ESTÁ TRAYENDO DATOS");
           return Center(
             child: CircularProgressIndicator(),
           );

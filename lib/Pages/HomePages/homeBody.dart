@@ -14,6 +14,10 @@ import 'package:loafood/Pages/HomePages/all_foods.dart';
 import 'package:loafood/Models/model_foods.dart';
 import 'package:loafood/Provider/foods_provider.dart';
 
+import '../Basket_pages/myBasket.dart';
+import '../FavoritesPages/favoritePage.dart';
+import '../PlanPages/myPlan.dart';
+import '../SearchPages/Page_search.dart';
 import '../enum.dart';
 
 String categ = "";
@@ -78,7 +82,125 @@ class _HomeBodyState extends State<HomeBody> {
           ),
         ),
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Container(
+          child: Column(children: [
+            Container(
+              width: 110,
+              height: 110,
+              margin: EdgeInsets.only(top: 50, bottom: 20),
+              child: Image.asset("assets/logo.png"),
+            ),
+            Text("LoaFood",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+            Container(
+              margin: EdgeInsets.only(top: 12),
+              padding: EdgeInsets.all(14),
+              width: double.infinity,
+              color: Colors.grey[100],
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Home()),
+                  );
+                },
+                child: Text(
+                  "Home",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 12),
+              padding: EdgeInsets.all(14),
+              width: double.infinity,
+              color: Colors.grey[100],
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PageSearch()),
+                  );
+                },
+                child: Text(
+                  "Search recipes",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 12),
+              padding: EdgeInsets.all(14),
+              width: double.infinity,
+              color: Colors.grey[100],
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyPlan()),
+                  );
+                },
+                child: Text(
+                  "My weekly plan",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: secondaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 12),
+              padding: EdgeInsets.all(14),
+              width: double.infinity,
+              color: Colors.grey[100],
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyBasket()),
+                  );
+                },
+                child: Text(
+                  "Basket",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 12),
+              padding: EdgeInsets.all(14),
+              width: double.infinity,
+              color: Colors.grey[100],
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Favorite()),
+                  );
+                },
+                child: Text(
+                  "My favorite",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: primaryColor,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+          ]),
+        ),
+      ),
     );
   }
 }

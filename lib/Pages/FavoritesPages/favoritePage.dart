@@ -45,7 +45,7 @@ class _FavoriteState extends State<Favorite> {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 15),
+          SizedBox(height: 10),
           Container(
             width: double.infinity,
             height: 600,

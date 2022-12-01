@@ -63,12 +63,12 @@ class CustomAppBar extends StatelessWidget {
         ),
         //Se crea el tercer elemento de appBar, el cual es la imagen del perfil del usuario
         Container(
-          width: 60,
-          height: 60,
+          width: 70,
+          height: 70,
           padding: EdgeInsets.all(10),
           child: CircleAvatar(
-              backgroundColor: Colors.amber,
-              backgroundImage: AssetImage("assets/profile.jpg"),
+              backgroundColor: Colors.white,
+              backgroundImage: AssetImage("assets/logo.png"),
               radius: 200.0),
         ),
       ],
