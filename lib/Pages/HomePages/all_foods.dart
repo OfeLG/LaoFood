@@ -12,8 +12,6 @@ import 'package:loafood/Pages/enum.dart';
 import 'package:loafood/Pages/DetailsPages/food_details.dart';
 import 'package:loafood/Provider/foods_provider_Str.dart';
 
-String ID = "";
-
 class AllFoods extends StatelessWidget {
   final BuildContext context;
   final Foods_Provider_Str foodsList;
@@ -67,10 +65,10 @@ class _AllSingleProducts extends State<AllSingleProducts> {
     //Se retorna un GestureDetector con un onTap con el fin de llamar a Details, que es otra pagina donde se detallan los datos del producto seleccionado
     return GestureDetector(
       onTap: () {
-        ID = widget.foodsList.id;
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Details()),
+          MaterialPageRoute(
+              builder: (context) => Details(food: widget.foodsList)),
         );
       },
       child: Column(

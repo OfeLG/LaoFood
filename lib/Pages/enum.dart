@@ -16,6 +16,7 @@ List<ModelIngredients> ingr_Basket = [];
 List<String> list_search = [];
 
 String previous_view = "";
+ModelRandomFood? details_f;
 
 final List<DateTime> dateList = [
   DateTime.now(),

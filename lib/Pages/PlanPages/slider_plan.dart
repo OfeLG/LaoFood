@@ -53,10 +53,11 @@ class _Slider_planState extends State<Slider_plan> {
                 slideBuilder: (index) {
                   return GestureDetector(
                       onTap: () {
-                        ID = widget.foodsList[index].id;
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Details()),
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  Details(food: widget.foodsList[index])),
                         );
                       },
                       child: Widget_Carousel(widget.foodsList)[index]);

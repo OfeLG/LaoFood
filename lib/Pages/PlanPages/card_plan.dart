@@ -28,10 +28,9 @@ class Card_plan extends StatelessWidget {
       //Se utiliza un GestureDetector y en el opTap para devolver un valor en caso de que se seleccione el contendor de la categoria
       child: GestureDetector(
         onTap: () {
-          ID = food.id;
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Details()),
+            MaterialPageRoute(builder: (context) => Details(food: food)),
           );
         },
         child: Container(

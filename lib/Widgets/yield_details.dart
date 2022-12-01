@@ -11,54 +11,41 @@ import 'package:loafood/Models/model_foods.dart';
 
 import '../Provider/foods_provider_Str.dart';
 
-Widget Yield_Widget(
-    {required Foods_Provider_Str foodsList, required BuildContext context}) {
-  return StreamBuilder(
-    stream: foodsList.FoodsStream_id,
-    builder: ((context, snapshot) {
-      if (snapshot.hasData) {
-        return Container(
-          width: 80,
-          height: 46,
-          child: RawMaterialButton(
-            fillColor: primaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            elevation: 2,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(
-                  Icons.group,
-                  color: Colors.white,
-                  size: 25,
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Text(
-                    (snapshot.data as List<ModelFoodId>)[0].yield.toString(),
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold),
-                  ), //Añadir cantidad de personas a comer
-                ),
-              ],
-            ),
-            onPressed: () {},
+Widget Yield_Widget({required ModelRandomFood food}) {
+  return Container(
+    width: 80,
+    height: 46,
+    child: RawMaterialButton(
+      fillColor: primaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      elevation: 2,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Icon(
+            Icons.group,
+            color: Colors.white,
+            size: 25,
           ),
-        );
-      } else {
-        print(snapshot.error);
-        return Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-    }),
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: Text(
+              food.yield.toString(),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold),
+            ), //Añadir cantidad de personas a comer
+          ),
+        ],
+      ),
+      onPressed: () {},
+    ),
   );
 }

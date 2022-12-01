@@ -60,10 +60,11 @@ class _FavoriteState extends State<Favorite> {
                   //Sele asignan los datos
                   return GestureDetector(
                     onTap: () {
-                      ID = favoriteList[index].id;
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Details()),
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Details(food: favoriteList[index])),
                       );
                     },
                     child: Column(

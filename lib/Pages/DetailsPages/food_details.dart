@@ -18,17 +18,15 @@ import 'info_details.dart';
 import '../bottomNavBar.dart';
 
 class Details extends StatefulWidget {
-  const Details({super.key});
+  final ModelRandomFood food;
+  const Details({super.key, required this.food});
   @override
   State<Details> createState() => _DetailsState();
 }
 
 class _DetailsState extends State<Details> {
-  final foods_provider = Foods_Provider_Str();
-
   @override
   Widget build(BuildContext context) {
-    foods_provider.getFoodId(ID);
     return Scaffold(
       body: SafeArea(
         child: Scaffold(
@@ -117,13 +115,12 @@ class _DetailsState extends State<Details> {
                     ),
                   ],
                 ),
-                ImgDetails(context: context, foodsList: foods_provider),
-                InfoDetails(context: context, foodsList: foods_provider),
+                ImgDetails(food: widget.food),
+                InfoDetails(food: widget.food),
               ],
             ),
           ),
-          floatingActionButton:
-              Yield_Widget(context: context, foodsList: foods_provider),
+          floatingActionButton: Yield_Widget(food: widget.food),
         ),
       ),
       bottomNavigationBar: BottomNavBar(), //TEMPORAL

@@ -59,12 +59,12 @@ class _Food_SliderState extends State<Food_Slider> {
                       slideBuilder: (index) {
                         return GestureDetector(
                           onTap: () {
-                            ID = (snapshot.data as List<ModelRandomFood>)[index]
-                                .id;
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Details()),
+                                  builder: (context) => Details(
+                                      food: (snapshot.data
+                                          as List<ModelRandomFood>)[index])),
                             );
                           },
                           child: Widget_Carousel(

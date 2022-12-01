@@ -16,62 +16,13 @@ class FoodRandom {
         break;
       }
       final food = new ModelRandomFood.fromJsonMap(item);
-      food.id = food.id
-          .replaceAll("http://www.edamam.com/ontologies/edamam.owl#", "");
       itemsRandom.add(food);
       i++;
     }
   }
 }
 
-class FoodID {
-  List<ModelFoodId> itemsId = [];
-
-  FoodID();
-
-  FoodID.fromJsonList(jsonList) {
-    if (jsonList == null) {
-      return;
-    }
-    ;
-    final food = new ModelFoodId.fromJsonMap(jsonList);
-    itemsId.add(food);
-  }
-}
-
 class ModelRandomFood {
-  late String name;
-  late String id;
-  late double time;
-  late String category;
-  late String imgURL;
-  late double calories;
-
-  ModelRandomFood(
-      {required this.name,
-      required this.id,
-      required this.time,
-      required this.category,
-      required this.imgURL,
-      required this.calories});
-
-  ModelRandomFood.fromJsonMap(Map<String, dynamic> json) {
-    name = json["recipe"]["label"];
-    print("nombre: ${json["recipe"]["label"]}");
-    id = json["recipe"]["uri"];
-    print("id: ${json["recipe"]["uri"]}");
-    time = json["recipe"]["totalTime"];
-    print("time: ${json["recipe"]["tatalTime"]}");
-    category = json["recipe"]["mealType"][0];
-    print("category: ${json["recipe"]["mealType"]}");
-    imgURL = json["recipe"]["images"]["REGULAR"]["url"];
-    print("img: ${json["recipe"]["images"]["REGULAR"]["url"]}");
-    calories = json["recipe"]["calories"];
-    print("calorias: ${json["recipe"]["calorias"]}");
-  }
-}
-
-class ModelFoodId {
   late String name;
   late double time;
   late String category;
@@ -82,7 +33,7 @@ class ModelFoodId {
   late double yield;
   late String cuisineType;
 
-  ModelFoodId(
+  ModelRandomFood(
       {required this.name,
       required this.time,
       required this.category,
@@ -93,11 +44,11 @@ class ModelFoodId {
       required this.yield,
       required this.cuisineType});
 
-  ModelFoodId.fromJsonMap(Map<String, dynamic> json) {
+  ModelRandomFood.fromJsonMap(Map<String, dynamic> json) {
     name = json["recipe"]["label"];
     time = json["recipe"]["totalTime"];
     category = json["recipe"]["mealType"][0];
-    imgURL = json["recipe"]["images"]["LARGE"]["url"];
+    imgURL = json["recipe"]["images"]["REGULAR"]["url"];
     calories = json["recipe"]["calories"];
     for (var item in json["recipe"]["ingredientLines"]) {
       recipe.add(item.replaceAll("*", ""));
